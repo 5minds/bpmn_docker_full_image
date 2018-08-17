@@ -1,7 +1,7 @@
 # Supported tags and respective Dockerfile links
 * `latest` [(master/Dockerfile)](https://github.com/process-engine/bpmn_docker_full_image/blob/master/Dockerfile)
-* `master` [(master/Dockerfile)](https://github.com/process-engine/bpmn_docker_full_image/blob/master/Dockerfile)
-* `master-b<build-number>` [(master/Dockerfile)](https://github.com/process-engine/bpmn_docker_full_image/blob/master/Dockerfile)
+* `master`, `master-b<build-number>` [(master/Dockerfile)](https://github.com/process-engine/bpmn_docker_full_image/blob/master/Dockerfile)
+* `develop`, `develop-b<build-number>` [(master/Dockerfile)](https://github.com/process-engine/bpmn_docker_full_image/blob/develop/Dockerfile)
 
 # BPMN Docker Fullimage
 
@@ -62,7 +62,7 @@ Es ist möglich, das base image, sowie die Paketversionen anzupassen:
 
 ```shell
 docker build --build-arg NODE_IMAGE_VERSION=10-alpine \
-             --build-arg PROCESS_ENGINE_VERSION=0.1.3 \
+             --build-arg PROCESS_ENGINE_VERSION=develop \
              --build-arg BPMN_STUDIO_VERSION=develop \
              --tag 5minds/bpmn-studio-bundle:latest .
 ```
