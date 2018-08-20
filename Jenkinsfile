@@ -35,7 +35,7 @@ pipeline {
     stage('Build') {
       steps {
         script {
-          branch_name = "${env.BRANCH_NAME}".replace("/", "~")
+          branch_name = "${env.BRANCH_NAME}".replace("/", "-")
           image_tag = "${branch_name}-b${env.BUILD_NUMBER}";
           image_name = '5minds/bpmn-studio-bundle';
 
