@@ -29,18 +29,22 @@ def cleanup_workspace() {
 }
 
 pipeline {
-  triggers { 
-    upstream(upstreamProjects: 'process-engine_node-lts/bpmn-studio/master,process-engine_node-lts/process_engine_runtime/master', 
-             threshold: hudson.model.Result.SUCCESS) 
+  triggers {
+    upstream(upstreamProjects: 'process-engine_node-lts/bpmn-studio/master,'
+                             + 'process-engine_node-lts/bpmn-studio/develop,'
+                             + 'process-engine_node-lts/process_engine_runtime/master,'
+                             + 'process-engine_node-lts/process_engine_runtime/develop',
+             threshold: hudson.model.Result.SUCCESS)
   }
   agent any
 
   stages {
     stage('Build') {
       when {
-        anyOf { 
-          branch 'master'; 
-          branch 'develop' }
+        anyOf {
+          branch 'master'
+          branch 'develop'
+        }
       }
       steps {
         script {
@@ -68,16 +72,17 @@ pipeline {
     }
     stage('publish') {
       when {
-        anyOf { 
-          branch 'master'; 
-          branch 'develop' }
+        anyOf {
+          branch 'master'
+          branch 'develop'
+        }
       }
       steps {
         withDockerRegistry([ credentialsId: "5mio-docker-hub-username-and-password", url: "" ]) {
           script {
             // Push with build number
             // sh("docker push ${full_image_name}");
-            
+
             // Push with latest tag
             if (BRANCH_NAME == 'master') {
               sh("docker tag ${full_image_name} ${image_name}:latest");
