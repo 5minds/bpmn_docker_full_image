@@ -42,8 +42,9 @@ pipeline {
     stage('Build') {
       when {
         anyOf {
-          branch 'master';
-          branch 'develop' }
+          branch 'master'
+          branch 'develop'
+        }
       }
       steps {
         script {
@@ -72,8 +73,9 @@ pipeline {
     stage('publish') {
       when {
         anyOf {
-          branch 'master';
-          branch 'develop' }
+          branch 'master'
+          branch 'develop'
+        }
       }
       steps {
         withDockerRegistry([ credentialsId: "5mio-docker-hub-username-and-password", url: "" ]) {
