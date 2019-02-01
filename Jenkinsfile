@@ -103,7 +103,6 @@ node {
   def process_engine_version = branch_is_master ? 'master' : 'develop';
   def bpmn_studio_version = branch_is_master ? 'master' : 'develop';
 
-
   NODE_VERSIONS.each {
 
     dockerfile_builds[it] = create_dockerfile_build_step(it, process_engine_version, bpmn_studio_version);
