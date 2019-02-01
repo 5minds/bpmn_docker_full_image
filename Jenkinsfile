@@ -93,7 +93,7 @@ def create_dockerfile_build_step(node_version, process_engine_version, bpmn_stud
   }
 }
 
-node {
+node('docker') {
   checkout scm;
 
   def branch_is_master = BRANCH_NAME == 'master';
