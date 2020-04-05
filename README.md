@@ -65,8 +65,3 @@ docker build --build-arg NODE_IMAGE_VERSION=10-alpine \
              --build-arg BPMN_STUDIO_VERSION=latest \
              --tag 5minds/bpmn-studio-bundle:latest .
 ```
-
-
-### Wen kann ich auf das Projekt ansprechen?
-* [Christoph Gnip](mailto:christoph.gnip@5minds.de)
-* [Dominik Kaminski](mailto:dominik.kaminski@5minds.de)
